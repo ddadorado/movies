@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:orientation="horizontal"
+android:padding="16dp">
+
+<!-- Movie Image -->
+<ImageView
+    android:id="@+id/movieImage"
+    android:layout_width="150dp"
+    android:layout_height="150dp"
+    android:scaleType="centerCrop" />
+
+<!-- Movie Details -->
+<LinearLayout
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:orientation="vertical"
+    android:layout_marginStart="16dp">
+
+    <!-- Movie Title -->
+    <TextView
+        android:id="@+id/movieTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Movie Title"
+        android:textSize="18sp"
+        android:layout_margin="6dp" />
+
+    <!-- Movie Rating -->
+    <RatingBar
+        android:id="@+id/movieRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="?android:attr/ratingBarStyleSmall"
+        android:numStars="5"
+        android:stepSize="0.5"
+        android:layout_margin="6dp"
+        android:rating="4.0" />
+
+    <!-- Mark as Favorite Button -->
+    <ToggleButton
+        android:id="@+id/markAsFavoriteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOn="Favorite"
+        android:textOff=""
+        android:text="Favorite"
+        android:textColor="@android:color/white"
+        android:checked="false"
+        android:background="@drawable/rounded_button"
+        android:radius="50dp"
+        android:textAllCaps="false"
+        android:layout_margin="6dp" />
+</LinearLayout>
+</LinearLayout>
