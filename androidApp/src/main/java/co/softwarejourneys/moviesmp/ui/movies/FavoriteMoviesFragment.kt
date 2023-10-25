@@ -27,20 +27,6 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class FavoriteMoviesFragment : Fragment(), MovieListener {
-    private fun updateUIWithSelectedMovie(selectedMovieData: MovieData, movieImageView: ImageView) {
-        // Here, you can update your UI to display the selected movie.
-        // For example, you can set the movie image, title, and any other relevant information.
-        // You can access the image view and other UI elements to update them.
-        // Replace the placeholders with actual UI elements in your layout.
-
-        // Update the UI with the selected movie's data
-        // For example:
-        Glide.with(requireContext())
-            .load(selectedMovieData.imageResourceId)
-            .into(movieImageView)
-        // You can similarly update other UI elements.
-    }
-
 
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -50,8 +36,6 @@ class FavoriteMoviesFragment : Fragment(), MovieListener {
     val movieMoviesViewModel: MoviesViewModel by viewModels(ownerProducer = { requireParentFragment() })
 
     override fun onMovieClicked(movieData: MovieData) {
-        // Handle the movie click event here
-        // For example, you can log the movie details:
         Log.d("value", "Movie clicked: ${movieData.title}")
         movieMoviesViewModel.updateMovie(movieData)
     }
@@ -72,10 +56,7 @@ class FavoriteMoviesFragment : Fragment(), MovieListener {
         val rootView = inflater.inflate(co.softwarejourneys.moviesmp.android.R.layout.fragment_favorite_movies, container, false)
         movieRecyclerView = rootView.findViewById(co.softwarejourneys.moviesmp.android.R.id.favoriteMovieRecyclerView)
         movieRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        //val movieViewModel: ViewModel by viewModels()
-        // Initialize the ImageView
 
-        //val movieViewModel: ViewModel by viewModels(ownerProducer = { requireParentFragment() })
         val adapter = MovieAdapter(this)
         movieRecyclerView.adapter = adapter
         movieMoviesViewModel.getFavoriteMovies().observe(viewLifecycleOwner) { movies ->

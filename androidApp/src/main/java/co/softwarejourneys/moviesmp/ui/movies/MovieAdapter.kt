@@ -37,12 +37,11 @@ class MovieAdapter(private val clickListener: MovieListener) : RecyclerView.Adap
         val movie = movieData[position]
         val baseImgUrl = "https://image.tmdb.org/t/p"
         val size = "/w500"
-        Glide.with(holder.itemView) // Use the itemView from the holder
-            .load("$baseImgUrl$size${movie.imageResourceId}")  // Use the imageResourceId from the Movie object
-            .into(holder.movieImageView)  // Set the loaded image into the ImageView
+        Glide.with(holder.itemView)
+            .load("$baseImgUrl$size${movie.imageResourceId}")
+            .into(holder.movieImageView)
 
-        // Bind the movie data to the views
-        //holder.movieImageView.setImageResource(movie.imageResourceId)
+
         holder.movieTitleView.text = movie.title
         holder.movieRatingBar.rating = movie.rating.toFloat()/2
         holder.markAsFavoriteButton.isChecked = movie.isFavorite

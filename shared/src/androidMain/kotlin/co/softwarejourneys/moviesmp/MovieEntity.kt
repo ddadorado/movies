@@ -10,4 +10,14 @@ data class MovieEntity(
     val url: String,
     val rating : Double,
     val isFavorite: Boolean
-)
+) {
+    fun MovieEntity.toMovieData(): MovieData {
+        return MovieData(
+            id = this.id,
+            title = this.name,
+            imageResourceId = this.url,
+            rating = this.rating,
+            isFavorite = this.isFavorite
+        )
+    }
+}

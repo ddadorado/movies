@@ -19,10 +19,6 @@ object DatabaseSingleton {
             "database-name"
         )
             .build()
-
-        // Print to the console when the database is created
-        println("Database createddd")
-
         return database
     }
 }
