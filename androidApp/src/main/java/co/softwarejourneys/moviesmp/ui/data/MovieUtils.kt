@@ -25,6 +25,15 @@ class MovieUtils {
         return out
     }
 
+    fun createUrl(movies: List<MovieData>): List<MovieData> {
+        val baseImgUrl = "https://image.tmdb.org/t/p"
+        val size = "/w500"
+        return movies.map { movie ->
+            val url = "$baseImgUrl$size${movie.imageResourceId}"
+            movie.copy(imageResourceId = url)
+        }
+    }
+
 
     private fun findByID(lista: List<MovieData>, idBuscado: Int): Boolean {
         return lista.find { it.id == idBuscado } == null

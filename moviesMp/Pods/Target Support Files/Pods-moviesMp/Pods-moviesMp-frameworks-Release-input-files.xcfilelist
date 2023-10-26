@@ -1,2 +1,3 @@
 ${PODS_ROOT}/Target Support Files/Pods-moviesMp/Pods-moviesMp-frameworks.sh
+${BUILT_PRODUCTS_DIR}/AsyncImage/AsyncImage.framework
 ${PODS_ROOT}/../../shared/build/cocoapods/framework/shared.framework

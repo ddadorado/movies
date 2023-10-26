@@ -7,7 +7,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class MovieData(
     @SerialName("backdrop_path")
-    val imageResourceId: String,
+    var imageResourceId: String,
     @SerialName("id")
     val id: Int,
     @SerialName("title")

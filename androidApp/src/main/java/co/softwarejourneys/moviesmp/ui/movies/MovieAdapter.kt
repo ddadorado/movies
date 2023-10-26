@@ -35,10 +35,12 @@ class MovieAdapter(private val clickListener: MovieListener) : RecyclerView.Adap
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         val movie = movieData[position]
-        val baseImgUrl = "https://image.tmdb.org/t/p"
-        val size = "/w500"
+        //val baseImgUrl = "https://image.tmdb.org/t/p"
+        //val size = "/w500"
+        println("URL MOVIE:"+movie.imageResourceId)
         Glide.with(holder.itemView)
-            .load("$baseImgUrl$size${movie.imageResourceId}")
+            //.load("$baseImgUrl$size${movie.imageResourceId}")
+            .load(movie.imageResourceId)
             .into(holder.movieImageView)
 
 

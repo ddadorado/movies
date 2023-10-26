@@ -14,13 +14,6 @@ import kotlinx.serialization.*
 import kotlinx.serialization.json.Json
 import kotlinx.coroutines.*
 
-//import io.ktor.serialization.kotlinx.json.*
-
-//--------------------------------------
-
-
-
-
 
 @Serializable
 data class MovieResponse(
@@ -50,13 +43,20 @@ class MovieClient {
 
     suspend fun fetchMovies(): List<MovieData>{
         try {
-            return client.get(url = apiUrl).body<MovieResponse>().results
-            println("movies: responseText: movies fetched")
+            return createUrl(client.get(url = apiUrl).body<MovieResponse>().results)
         } catch (e: Exception) {
             // Handle the exception appropriately (e.g., log the error or throw it)
-            println("movies: responseText: movies fetched ${e.message}")
             e.printStackTrace()
             throw e
+        }
+    }
+
+    fun createUrl(movies: List<MovieData>): List<MovieData> {
+        val baseImgUrl = "https://image.tmdb.org/t/p"
+        val size = "/w500"
+        return movies.map { movie ->
+            val url = "$baseImgUrl$size${movie.imageResourceId}"
+            movie.copy(imageResourceId = url)
         }
     }
 }

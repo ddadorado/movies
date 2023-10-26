@@ -1,16 +1,23 @@
 PODS:
+  - AsyncImage (0.1.1)
   - shared (1.0)
 
 DEPENDENCIES:
+  - AsyncImage (~> 0.1)
   - shared (from `../shared`)
+
+SPEC REPOS:
+  trunk:
+    - AsyncImage
 
 EXTERNAL SOURCES:
   shared:
     :path: "../shared"
 
 SPEC CHECKSUMS:
+  AsyncImage: 32d6c212f08e8cf1a54d31516697674c9310da22
   shared: 2d3b24a8fe27b7d9e65b8d075a9672fbc6a1aa10
 
-PODFILE CHECKSUM: 33ab3e505cf980ac6b571043167c50f0fad59308
+PODFILE CHECKSUM: a6719964f4f1b5789ec6dc460bf2b566763938aa
 
 COCOAPODS: 1.12.1

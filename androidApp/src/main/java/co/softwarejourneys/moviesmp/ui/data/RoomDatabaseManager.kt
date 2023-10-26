@@ -8,7 +8,7 @@ class RoomDatabaseManager(private val context: Context):DatabaseManager {
     private val database: AppDatabase = DatabaseSingleton.getDatabase(context)
     private val utils = MovieUtils()
     override fun getMovies(): List<MovieData> {
-        return utils.entityMovieListToDataMovieList(database.movieDao().getAllFavoriteMovies())
+        return utils.createUrl(utils.entityMovieListToDataMovieList(database.movieDao().getAllFavoriteMovies()))
     }
     override fun saveMovie(movie: MovieData) {
         database.movieDao().insert(utils.dataMovieToEntity(movie))
