@@ -24,6 +24,8 @@ struct MenuView: View {
     
     @State var selectedTab = Tabs.FirstTab
     @StateObject var viewModel: MoviesViewModel = MoviesViewModel()
+//    @EnvironmentObject var appDelegate: AppDelegate
+    
     var body: some View {
         
         VStack {
@@ -71,6 +73,8 @@ struct MenuView: View {
             }
         }.navigationBarBackButtonHidden(true)
     }
+    
+    
 }
 
 

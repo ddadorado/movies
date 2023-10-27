@@ -3,11 +3,7 @@ plugins {
     alias(libs.plugins.kotlinCocoapods)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.serializationPlugin)
-    //kotlin("multiplatform") // or kotlin("jvm") or any other kotlin plugin
-    //kotlin("plugin.serialization") version "1.4.10"
-    //kotlin("plugin.serialization") version "1.5.21"
-    //kotlin("android").version("1.8.0").apply(false)
-    //kotlin("multiplatform").version("1.8.0").apply(false)
+
 }
 
 

@@ -22,7 +22,7 @@ struct ContentView: View {
                         // Handle button press here
                         isButtonPressed.toggle()
                     }) {
-                        Text("Press Me")
+                        Text("Start")
                             .foregroundColor(.white) // Set text color
                             .padding()
                             .background(Color.purple) // Set the background color for the button

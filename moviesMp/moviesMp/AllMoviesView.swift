@@ -11,6 +11,13 @@ import AsyncImage
 
 struct AllMoviesView: View {
     @ObservedObject var viewModel: MoviesViewModel
+    //@Environment(\.managedObjectContext) var moc
+    @Environment(\.managedObjectContext) private var viewContext
+
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \MovieEntity.id, ascending: true)],
+        animation: .default)
+    private var items: FetchedResults<MovieEntity>
 
         var body: some View {
             List(viewModel.movies, id: \.id) { movie in
@@ -38,6 +45,14 @@ struct AllMoviesView: View {
                         Button(action: {
                                                 // Toggle the favorite state of the movie
                                                 viewModel.toggleFavorite(for: movie)
+//                            let movieE = MovieEntity(context: moc)
+//                            movieE.id = movie.id
+//                            movieE.title = movie.title
+//                            movieE.imageResourceId = movie.imageResourceId
+//                            movieE.rating = movie.rating
+//                            
+//                            try? moc.save()
+                                            
                                             }) {
                                                 Text(movie.isFavorite ? "Favorite" : "Mark as Favorite")
                                                     .foregroundColor(.white)
@@ -51,4 +66,8 @@ struct AllMoviesView: View {
                 }
             }
         }
+    
+    private func saveFavoriteMovie(){
+        
+    }
 }
